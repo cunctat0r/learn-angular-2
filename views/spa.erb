@@ -6,4 +6,8 @@
 	<br />
 	<button class="btn btn-primary" ng-click="name='Michelle'">Change name</button>
 </div>
-
+<div ng-init="names=['John', 'Paul', 'George', 'Ringo']">
+	<ul>
+		<li ng-repeat="name in names">{{name}}</li>
+	</ul>
+</div>
