@@ -14,6 +14,8 @@
 		<li ng-repeat="person in people">{{person.name}} -- {{person.city}} </li>
 	</ul>
 
+	Name: <input type="text" data-ng-model="nameText" />
+
 	<table class="table table-striped">
 		<thead>
 		<tr>
@@ -22,7 +24,7 @@
 		</tr>	
 		</thead>
 		<tbody>
-			<tr  ng-repeat="person in people">
+			<tr  ng-repeat="person in people | filter:nameText | orderBy: 'name'">
 				<td> {{person.name}} </td>
 				<td> {{person.city}} </td>
 			</tr>
