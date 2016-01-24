@@ -14,7 +14,7 @@
 		<li ng-repeat="person in people">{{person.name}} -- {{person.city}} </li>
 	</ul>
 
-	Name: <input type="text" data-ng-model="nameText" />
+	Filter: <input type="text" data-ng-model="customerFilter" />
 
 	<table class="table table-striped">
 		<thead>
@@ -26,7 +26,7 @@
 		</tr>	
 		</thead>
 		<tbody>
-			<tr  ng-repeat="person in people | filter:nameText | orderBy: 'name'">
+			<tr  ng-repeat="person in people | filter:customerFilter | orderBy: 'name'">
 				<td> {{person.name}} </td>
 				<td> {{person.city}} </td>				
 				<td> {{person.orderTotal | currency }} </td>
