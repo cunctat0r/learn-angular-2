@@ -9,6 +9,7 @@
 <div ng-init="people=[{name:'John', city:'London', joined:'2014-12-02', orderTotal:212.5}, 
 					{name:'Paul', city:'Liverpool', joined:'2014-11-02', orderTotal:312.1}, 
 					{name:'George', city:'Glasgow', joined:'2014-10-02', orderTotal:435.99}, 
+					{name:'Leo', city:'Albuquerque', joined:'2014-01-02', orderTotal:415.99}, 
 					{name:'Ringo', city:'Manchester', joined:'2014-11-12', orderTotal:111}]">
 	<ul>
 		<li ng-repeat="person in people">{{person.name}} -- {{person.city}} </li>
@@ -20,9 +21,9 @@
 		<thead>
 		<tr>
 			<th ng-click="sortBy='name'; reverse=!reverse">Name</th>
-			<th>City</th>
-			<th>Total order</th>
-			<th>Joined</th>			
+			<th ng-click="sortBy='city'; reverse=!reverse">City</th>
+			<th ng-click="sortBy='orderTotal'; reverse=!reverse">Total order</th>
+			<th ng-click="sortBy='joined'; reverse=!reverse">Joined</th>			
 		</tr>	
 		</thead>
 		<tbody>
