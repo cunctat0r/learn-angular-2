@@ -12,5 +12,6 @@
 			$scope.reverse = !$scope.reverse
   		};			
 	};
+	CustomersController.$inject = ['$scope'];
 	angular.module('myApp').controller('CustomersController', CustomersController);
 }());
