@@ -1,38 +1,25 @@
-<div ng-init="name='James'">
-	<div ng-hide="isHidden">
-		Name: <input type="text" ng-model="name" />	{{ name }}
-	</div>	
-	Hide: <input type="checkbox" ng-model="isHidden" />
-	<br />
-	<button class="btn btn-primary" ng-click="name='Michelle'">Change name</button>
-</div>
-<div ng-init="people=[{name:'John', city:'London', joined:'2014-12-02', orderTotal:212.5}, 
-					{name:'Paul', city:'Liverpool', joined:'2014-11-02', orderTotal:312.1}, 
-					{name:'George', city:'Glasgow', joined:'2014-10-02', orderTotal:435.99}, 
-					{name:'Leo', city:'Albuquerque', joined:'2014-01-02', orderTotal:415.99}, 
-					{name:'Ringo', city:'Manchester', joined:'2014-11-12', orderTotal:111}]">
-	<ul>
-		<li ng-repeat="person in people">{{person.name}} -- {{person.city}} </li>
-	</ul>
 
-	Filter: <input type="text" data-ng-model="customerFilter.name" />
-
+	
+<div  ng-controller="CustomersController">
 	<table class="table table-striped">
 		<thead>
 		<tr>
-			<th ng-click="sortBy='name'; reverse=!reverse">Name</th>
-			<th ng-click="sortBy='city'; reverse=!reverse">City</th>
-			<th ng-click="sortBy='orderTotal'; reverse=!reverse">Total order</th>
-			<th ng-click="sortBy='joined'; reverse=!reverse">Joined</th>			
+			<th ng-click="doSort('name')">Name</th>
+			<th ng-click="doSort('city')">City</th>
+			<th ng-click="doSort('ordersTotal')">Total order</th>
+			<th ng-click="doSort('joined')">Joined</th>			
 		</tr>	
 		</thead>
 		<tbody>
-			<tr  ng-repeat="person in people | filter:customerFilter | orderBy:sortBy:reverse">
-				<td> {{person.name}} </td>
-				<td> {{person.city}} </td>				
-				<td> {{person.orderTotal | currency }} </td>
-				<td> {{person.joined | date:'dd-MM-yyyy' }} </td>
+			<tr  ng-repeat="cust in customers | filter:customerFilter | orderBy:sortBy:reverse">
+				<td> {{cust.name}} </td>
+				<td> {{cust.city}} </td>				
+				<td> {{cust.orderTotal | currency }} </td>
+				<td> {{cust.joined | date:'dd-MM-yyyy' }} </td>
 			</tr>
 		</tbody>		
 	</table>
+	<br />
+	<span>Total customers: {{ customers.length }}</span>
+
 </div>
