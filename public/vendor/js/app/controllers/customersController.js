@@ -1,5 +1,3 @@
-var myApp = angular.module('myApp',[]);
-
 myApp.controller('CustomersController', ['$scope', function($scope) {
   $scope.sortBy = 'name';
   $scope.reverse = false;
