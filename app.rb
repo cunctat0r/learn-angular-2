@@ -22,3 +22,19 @@ end
 get '/spa' do
 	erb :spa
 end
+
+get '/customers/:id' do
+  customer = Customer.find params[:id]
+  orders = Order.where(customer_id: params[:id])
+  
+  @data = customer.as_json
+  ord = orders.as_json
+  @data[:orders] = ord
+
+  #erb :test
+end
+
+get '/customers' do
+  customers_data = Customer.all
+  customers = customers_data.as_json  
+end
