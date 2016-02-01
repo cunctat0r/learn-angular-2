@@ -5,7 +5,8 @@
 			<th ng-click="doSort('name')">Name</th>
 			<th ng-click="doSort('city')">City</th>
 			<th ng-click="doSort('ordersTotal')">Total order</th>
-			<th ng-click="doSort('joined')">Joined</th>			
+			<th ng-click="doSort('joined')">Joined</th>	
+			<th>&nbsp;</th>		
 		</tr>	
 		</thead>
 		<tbody>
@@ -14,6 +15,7 @@
 				<td> {{cust.city}} </td>				
 				<td> {{cust.orderTotal | currency }} </td>
 				<td> {{cust.joined | date:'dd-MM-yyyy' }} </td>
+				<td> <a href='#/orders/{{ cust.id }}'>View Orders</a> </td>
 			</tr>
 		</tbody>		
 	</table>
