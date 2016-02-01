@@ -1,25 +1,3 @@
-
-	
-<div  ng-controller="CustomersController">
-	<table class="table table-striped">
-		<thead>
-		<tr>
-			<th ng-click="doSort('name')">Name</th>
-			<th ng-click="doSort('city')">City</th>
-			<th ng-click="doSort('ordersTotal')">Total order</th>
-			<th ng-click="doSort('joined')">Joined</th>			
-		</tr>	
-		</thead>
-		<tbody>
-			<tr  ng-repeat="cust in customers | filter:customerFilter | orderBy:sortBy:reverse">
-				<td> {{cust.name}} </td>
-				<td> {{cust.city}} </td>				
-				<td> {{cust.orderTotal | currency }} </td>
-				<td> {{cust.joined | date:'dd-MM-yyyy' }} </td>
-			</tr>
-		</tbody>		
-	</table>
-	<br />
-	<span>Total customers: {{ customers.length }}</span>
-
+<div ng-view>
 </div>
+	
