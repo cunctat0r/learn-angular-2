@@ -7,9 +7,11 @@ require 'sinatra/activerecord'
 set :database, 'sqlite3:customers.sqlite3'
 
 class Customer < ActiveRecord::Base
+  has_many :orders
 end
 
 class Order < ActiveRecord::Base
+  belongs_to :customer
 end
 
 
