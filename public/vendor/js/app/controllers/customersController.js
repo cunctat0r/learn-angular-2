@@ -3,10 +3,17 @@
 		$scope.sortBy = 'name';
 		$scope.reverse = false;
 		$scope.customers = [];
-    $scope.appSettings = appSettings;    
+    	$scope.appSettings = appSettings;    
 
 		function init() {
-			$scope.customers = customersFactory.getCustomers();  			
+			//$scope.customers = customersFactory.getCustomers();  			
+			customersFactory.getCustomers()
+				.success(function(customers) {					
+					$scope.customers = customers;
+				})
+				.error(function(data, status, header, config) {
+// handle error
+				});
 		}
 		init();
 		
