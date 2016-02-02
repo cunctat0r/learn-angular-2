@@ -27,14 +27,13 @@ get '/customers/:id' do
   customer = Customer.find params[:id]
   orders = Order.where(customer_id: params[:id])
   
-  @data = customer.as_json
+  data = customer.as_json
   ord = orders.as_json
-  @data[:orders] = ord
-
-  #erb :test
+  data[:orders] = ord
+  data.to_json  
 end
 
 get '/customers' do
   customers_data = Customer.all
-  customers = customers_data.as_json  
+  customers = customers_data.as_json.to_json  
 end
