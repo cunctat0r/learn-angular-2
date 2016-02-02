@@ -46,3 +46,13 @@ get '/customers' do
   end
   
 end
+
+get '/orders' do
+  orders_data = Order.all
+  if orders_data.empty?
+    return 'There are no orders in database'
+  else
+    orders = orders_data.as_json.to_json  
+  end
+  
+end
