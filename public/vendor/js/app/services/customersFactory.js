@@ -112,6 +112,12 @@
 			return $http.get('/customers/' + customerId);	
 		};
 
+		factory.getOrders = function() {
+			//return customers;
+			return $http.get('/orders');
+		};
+
+
 		return factory;
 	};
 
