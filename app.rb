@@ -24,7 +24,11 @@ get '/spa' do
 end
 
 get '/customers/:id' do
-  customer = Customer.find params[:id]
+  customer = Customer.find_by_id params[:id]
+  if customer == nil    
+    return 'No such customer'
+  end
+
   orders = Order.where(customer_id: params[:id])
   
   data = customer.as_json
@@ -35,5 +39,10 @@ end
 
 get '/customers' do
   customers_data = Customer.all
-  customers = customers_data.as_json.to_json  
+  if customers_data.empty?
+    return 'There are no customers in database'
+  else
+    customers = customers_data.as_json.to_json  
+  end
+  
 end
